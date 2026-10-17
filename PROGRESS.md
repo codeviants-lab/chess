@@ -18,8 +18,10 @@
 
 ## Aşamalar
 - [x] Açık kararlar cevaplandı (SPEC.md, 2026-10-17)
-- [ ] P0 — oynanabilir sürüm (puansız): bot, arkadaşa link, rastgele rakip
-- [ ] M0 — kayıt çekirdeği
+- [ ] P0 — oynanabilir sürüm (puansız): bot, arkadaşa link, rastgele rakip — kod bitti (#13, PR #14), yayında
+      https://codeviants-lab.github.io (yalnızca bot); kalanlar: #15 Supabase, #16 cihaz testi, #17 otomatik
+      yayın, #18 gruba açılış
+- [ ] M0 — kayıt çekirdeği (#1 bitti; #2–#11 açık)
 - [ ] M1 — tahta ve yerel oyun
 - [ ] M2 — hesaplar
 - [ ] M3 — çevrimiçi oyun
@@ -41,3 +43,8 @@
   elo-v1, Stockfish yok, Cloudflare Pages, 3+2 / 5+0 / 10+5 / yazışmalı, TypeScript, hash zinciri,
   arşiv codeviants-lab/chess-archive. Yeni bölüm: puan ve turnuva sistemleri için bağlayıcı eklenti
   sözleşmesi (grup kendi sistemlerini ekleyecek). Sıradaki: CONTRIBUTING.md ve ilk Issue'lar, sonra M0.
+- 2026-10-17 — Sahibi önceliği değiştirdi: M0'dan önce gruba atılabilecek, puansız oynanabilir sürüm (P0, SPEC'te
+  bölüm). #1 (iskelet, PR #12) ve #13 (P0, PR #14) birleşti. Proje adı codeviants-chess. Site GitHub Pages'te
+  (Cloudflare hesabı yok): derlenmiş dosyalar public codeviants-lab/codeviants-lab.github.io reposunda, yayın
+  `./scripts/deploy-pages.sh` ile elle. Supabase anahtarı olmadığı için yayında yalnızca bota karşı oyun var;
+  çevrimiçi modlar "Yakında". Açık uçlar "P0 — gruba açılış" kilometre taşında: #15–#18.
