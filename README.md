@@ -8,6 +8,8 @@ yazılır.
 Durum: planlama bitti, kod henüz yok. Gereksinimler ve kararlar [SPEC.md](SPEC.md), ilerleme
 [PROGRESS.md](PROGRESS.md).
 
+Katılmak için: [CONTRIBUTING.md](CONTRIBUTING.md) — iş seçme, dal, PR ve yapay zekâ ajanlarıyla çalışma kuralları.
+
 ## Kendi sistemini icat et
 
 Puan ve turnuva sistemleri bu projede sabit değil. Bilinen sistemler (Elo; herkes herkesle; eleme) varsayılan

@@ -3,13 +3,14 @@
 Çalışma döngüsünün günlüğü (bkz. SPEC.md). En yeni kayıt "Günlük"ün en altında.
 
 ## Döngü kuralları
-- Her iterasyonda tek iş birimi: uygula, testleri çalıştır, düzelt, anlamlı bir mesajla commit'le,
-  bu dosyaya tarih, ne yapıldı, test sonucu ve sıradaki adımı yaz.
+- Her iş bir GitHub Issue'sudur ve kendi dalında yapılıp PR ile gönderilir (bkz. CONTRIBUTING.md). İşin
+  günlüğü (ne yapıldı, test sonucu, ne denenmedi) PR açıklamasına yazılır; bu dosyaya yalnızca aşama
+  özetleri ve önemli kararlar girer.
 - Bir aşama bitince onu "[x] — incelemede" işaretle, özetini yaz ve döngüyü durdur. Sahibi onaylamadan
   sonrakine geçme.
 - Aynı test iki kez üst üste başarısız olursa dur, sorunu "Açık sorunlar"a yaz; tahminle ilerleme.
 - M0'dan sonra olay formatını değiştirmen gerekirse dur ve sor; değişiklik yalnızca eklemeli olabilir.
-- Yalnızca belirlenen dala push et. Pull request açma. Sormadan yeni bağımlılık, hesap ya da ücretli servis
+- `main`'e doğrudan push etme. Sormadan yeni bağımlılık, hesap ya da ücretli servis
   ekleme. Hesap açman, para harcaman ya da bir anahtara ihtiyaç duyman gerekiyorsa dur ve sor; anahtarları
   sohbette isteme, ortam ayarlarına eklenmelerini iste.
 - Çalıştırmadığın bir şeye "çalışıyor" deme; doğrulanmayan her şeyi açıkça yaz.
