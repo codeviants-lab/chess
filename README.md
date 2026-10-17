@@ -1,8 +1,9 @@
 # codeviants-chess
 
-### ▶ [Tıkla ve oyna: codeviants-chess.pages.dev](https://codeviants-chess.pages.dev)
+### ▶ [Tıkla ve oyna: codeviants-lab.github.io](https://codeviants-lab.github.io)
 
-Kayıt yok, kurulum yok: linki aç, bota karşı ya da arkadaşınla oyna. Telefonda ve bilgisayarda çalışır.
+Kayıt yok, kurulum yok: linki aç ve oyna. Telefonda ve bilgisayarda çalışır. Şu an bota karşı; arkadaşa link ve
+rastgele rakip, Supabase bağlanınca açılır.
 
 Bir WhatsApp grubu için satranç ve turnuva uygulaması: kayıt, uygulama içinde saatli oyunlar (canlı ve
 yazışmalı), turnuvalar, galibiyet / mağlubiyet / beraberlik, puan ve maç geçmişi. Oyun kayıtları değişmez,
@@ -33,19 +34,21 @@ VITE_SUPABASE_URL=https://<proje>.supabase.co
 VITE_SUPABASE_ANON_KEY=<anon/public anahtar>
 ```
 
-## Yayına alma (Cloudflare Pages)
+## Yayına alma
 
-1. Supabase: yeni proje → **Project Settings → API**: Project URL ve `anon` `public` anahtarı al.
-   Veritabanı kullanılmıyor; yalnızca Realtime (broadcast + presence). **Realtime → Settings**'te public
-   kanallara erişim açık olmalı (varsayılan).
-2. Cloudflare: **Workers & Pages → Create → Pages → Connect to Git** → `codeviants-lab/chess`.
-   Build command `npm run build`, output `dist`, ortam değişkenleri `VITE_SUPABASE_URL`,
-   `VITE_SUPABASE_ANON_KEY` (ve gerekirse `NODE_VERSION=22`). Proje adı `codeviants-chess` →
-   `https://codeviants-chess.pages.dev`.
-3. Her PR'a otomatik önizleme linki gelir; `main`'e birleşen her şey yayına çıkar.
+Site GitHub Pages'te: `scripts/deploy-pages.sh` derler ve yalnızca derlenmiş dosyaları public
+`codeviants-lab/codeviants-lab.github.io` reposuna gönderir (kaynak kod bu private repoda kalır). Adres:
+https://codeviants-lab.github.io. Yayınlamak: `main` güncelken `./scripts/deploy-pages.sh`.
+
+Arkadaşa link ve rastgele rakip için Supabase gerekir (Supabase anahtarı olmayan bir derlemede bu modlar "yakında"
+olarak görünür):
+
+1. supabase.com'da proje aç → **Project Settings → API**: Project URL ve `anon` `public` anahtar.
+   Veritabanı kullanılmıyor; yalnızca Realtime (broadcast + presence).
+2. Bu iki değeri yukarıdaki gibi `.env.local`'e yaz ve `./scripts/deploy-pages.sh` çalıştır.
 
 Anon anahtar tarayıcıya gömülür ve herkese açıktır; bu Supabase'in tasarımıdır. Servis (service_role) anahtarı
-asla buraya ya da repoya girmez.
+asla buraya ya da repoya girmez. İleride PR önizlemeleri istenirse Cloudflare Pages'e geçilebilir (SPEC).
 
 ## Kendi sistemini icat et
 

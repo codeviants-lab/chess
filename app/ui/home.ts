@@ -3,7 +3,7 @@ import { newRoom, type Color } from '../game/room';
 import { saveRoom } from '../game/online-session';
 import { TC_LABEL, TIME_CONTROLS } from '../game/session';
 import { load, me, randomId, save, setName } from '../lib/store';
-import { transport } from '../net';
+import { onlineAvailable, transport } from '../net';
 import { choice, h } from './dom';
 
 type ColorChoice = Color | 'random';
@@ -59,8 +59,8 @@ export function renderHome(root: HTMLElement, navigate: (hash: string) => void):
   };
 
   const online = h('p', { class: 'online' });
-  const site = transport.join('site', { pid: me().pid, name: me().name, since: Date.now() });
-  site.onMembers((members) => {
+  const site = onlineAvailable ? transport.join('site', { pid: me().pid, name: me().name, since: Date.now() }) : null;
+  site?.onMembers((members) => {
     online.textContent = `Şu an sitede ${members.length} kişi` + (transport.kind === 'local' ? ' (yerel test modu)' : '');
   });
 
@@ -79,21 +79,28 @@ export function renderHome(root: HTMLElement, navigate: (hash: string) => void):
         choice('Süre', TCS, prefs.botTc, (v) => set('botTc', v)),
         h('button', { class: 'primary', onclick: startBot }, 'Oyna'),
       ),
-      h('section', { class: 'card' },
-        h('h2', {}, 'Arkadaşınla'),
-        h('p', { class: 'hint' }, 'Bir link oluştur, WhatsApp’tan gönder; açan kişi rakibin olur.'),
-        choice('Renk', COLORS, prefs.friendColor, (v) => set('friendColor', v)),
-        choice('Süre', TCS, prefs.friendTc, (v) => set('friendTc', v)),
-        h('button', { class: 'primary', onclick: createRoom }, 'Davet linki oluştur'),
-      ),
-      h('section', { class: 'card' },
-        h('h2', {}, 'Rastgele rakip'),
-        h('p', { class: 'hint' }, 'Aynı süreyi seçmiş, bekleyen biriyle eşleşirsin.'),
-        choice('Süre', TCS, prefs.seekTc, (v) => set('seekTc', v)),
-        h('button', { class: 'primary', onclick: seek }, 'Rakip bul'),
-      ),
+      onlineAvailable
+        ? h('section', { class: 'card' },
+            h('h2', {}, 'Arkadaşınla'),
+            h('p', { class: 'hint' }, 'Bir link oluştur, WhatsApp’tan gönder; açan kişi rakibin olur.'),
+            choice('Renk', COLORS, prefs.friendColor, (v) => set('friendColor', v)),
+            choice('Süre', TCS, prefs.friendTc, (v) => set('friendTc', v)),
+            h('button', { class: 'primary', onclick: createRoom }, 'Davet linki oluştur'),
+          )
+        : null,
+      onlineAvailable
+        ? h('section', { class: 'card' },
+            h('h2', {}, 'Rastgele rakip'),
+            h('p', { class: 'hint' }, 'Aynı süreyi seçmiş, bekleyen biriyle eşleşirsin.'),
+            choice('Süre', TCS, prefs.seekTc, (v) => set('seekTc', v)),
+            h('button', { class: 'primary', onclick: seek }, 'Rakip bul'),
+          )
+        : h('section', { class: 'card soon' },
+            h('h2', {}, 'Arkadaşınla · Rastgele rakip'),
+            h('p', { class: 'hint' }, 'Yakında: arkadaşına link atarak ya da rastgele biriyle oynamak. Şimdilik bota karşı oyna.'),
+          ),
       h('footer', {}, 'Puansız deneme sürümü · ', h('a', { href: 'https://github.com/codeviants-lab/chess' }, 'codeviants-lab')),
     ),
   );
-  return () => site.leave();
+  return () => site?.leave();
 }

@@ -155,3 +155,4 @@ footer { color: var(--muted); font-size: .8rem; text-align: center; margin-top: 
   .moves { display: grid; grid-template-columns: 1fr; max-height: 50vh; overflow-y: auto; overflow-x: hidden; }
   .moves li { display: grid; grid-template-columns: 2.2em 1fr 1fr; }
 }
+.card.soon { opacity: .75; }

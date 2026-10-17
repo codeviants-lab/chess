@@ -167,6 +167,8 @@ interface TournamentFormat<Options = unknown> {
 - Kapasite hesabı README'de: oyun başına boyut, yıllık tahmin, ücretsiz plan sınırları.
 
 ## Barındırma
+- Şu an (P0): derlenmiş site GitHub Pages'te, public `codeviants-lab/codeviants-lab.github.io` reposundan
+  (https://codeviants-lab.github.io); kaynak private kalır. Cloudflare hesabı açılınca aşağıdaki plana geçilir.
 - Başlangıç: Supabase ücretsiz plan + statik ön yüz Cloudflare Pages'te (private repoya bağlanır, her PR için
   önizleme linki verir). Sunucu kiralanmaz. GitHub Pages kullanılamaz: ücretsiz org'da private repodan yayın
   yok ve org'da Pages kapalı.
