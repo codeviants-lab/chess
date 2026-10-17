@@ -16,7 +16,7 @@
 - SPEC.md'de olmayan özellik ekleme; fikirleri aşağıda "Öneriler"e yaz.
 
 ## Aşamalar
-- [ ] Açık kararlar cevaplandı (SPEC.md)
+- [x] Açık kararlar cevaplandı (SPEC.md, 2026-10-17)
 - [ ] M0 — kayıt çekirdeği
 - [ ] M1 — tahta ve yerel oyun
 - [ ] M2 — hesaplar
@@ -34,3 +34,8 @@
 ## Günlük
 - 2026-10-17 — Proje oluşturuldu: SPEC.md, PROGRESS.md, LICENSE (MIT), .gitignore. Henüz kod yok. Sıradaki:
   açık kararları sahibine sormak.
+- 2026-10-17 — Repo codeviants-lab/chess'e taşındı. Açık kararlar sahibiyle tek tek cevaplandı ve SPEC.md'ye
+  işlendi ("Verilen kararlar"): uygulama içi oyun, onaylı masa başı sonuçları, herkes herkesle + eleme,
+  elo-v1, Stockfish yok, Cloudflare Pages, 3+2 / 5+0 / 10+5 / yazışmalı, TypeScript, hash zinciri,
+  arşiv codeviants-lab/chess-archive. Yeni bölüm: puan ve turnuva sistemleri için bağlayıcı eklenti
+  sözleşmesi (grup kendi sistemlerini ekleyecek). Sıradaki: CONTRIBUTING.md ve ilk Issue'lar, sonra M0.
