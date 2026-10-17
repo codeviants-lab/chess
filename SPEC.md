@@ -1,4 +1,4 @@
-# SPEC — Satranç Kulübü
+# SPEC — codeviants-chess
 
 Bir WhatsApp grubu için satranç ve turnuva uygulaması.
 
@@ -206,7 +206,25 @@ interface TournamentFormat<Options = unknown> {
 8. Olaylar hash zinciriyle mühürlenir.
 9. Arşiv reposu: `codeviants-lab/chess-archive` (private).
 
+## P0 — oynanabilir sürüm (puansız, 2026-10-17)
+Sahibinin kararı: M0'dan önce gruba hemen atılabilecek, oynanabilir bir sürüm. Puan, hesap ve kalıcı kayıt
+yok; amaç oyunu gruba açmak ve ardından katkıcıları davet etmek.
+
+- Modlar: bota karşı (kolay / orta / zor), arkadaşa link (`#/g/<oda>`), rastgele rakip (aynı süreyi seçmiş
+  bekleyenlerle eşleşme). Süreler: süresiz, 3+2, 5+0, 10+5. Telefon önce, masaüstü de.
+- Tahta: kendi SVG tahtamız, standart görünüm (Lichess kahverengi tahta, cburnett taşları). Sürükle-bırak ve
+  dokun-dokun; ok ve daire çizme (sağ tık; telefonda kalem modu; Shift kırmızı, Alt mavi, Ctrl sarı).
+- Bot: `core/bot/` — kendi hızlı tahta temsilimiz (perft ile chess.js'e karşı doğrulanır) + alfa-beta arama,
+  tarayıcıda Web Worker'da çalışır. Stockfish yok.
+- Çevrimiçi: Supabase Realtime'ın yalnızca broadcast ve presence özellikleri (veritabanı yok). Oyun protokolü
+  `app/game/room.ts`: her istemci her mesajı aynı saf `reduce` fonksiyonundan geçirir; hamleler chess.js ile
+  doğrulanır. Sunucu otoritesi yok — puansız olduğu için kabul edilebilir. Supabase anahtarı yoksa aynı
+  tarayıcının sekmeleri arasında çalışır (yerel geliştirme ve uçtan uca testler).
+- M3 bu protokolün yerine sunucu otoriteli, olay kaydına yazan sürümü koyar; P0'ın oda linkleri ve arayüzü
+  korunur.
+
 ## Aşamalar (her biri bitince dur ve onay bekle)
+- P0 Oynanabilir sürüm (yukarıda).
 - M0 Kayıt çekirdeği (arayüz yok): olay türleri ve şema v1, hash zinciri, olay doğrulama, bellek adaptörü,
   projeksiyonlar (oyun durumu, G/M/B, puan), eklenti kayıtları ve `elo-v1`, ortak sözleşme testleri, PGN dışa
   ve içe aktarma, JSON satırları dışa ve içe aktarma. Bu aşamada olay formatı dondurulur.

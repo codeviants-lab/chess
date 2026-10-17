@@ -1,14 +1,51 @@
-# Satranç Kulübü
+# codeviants-chess
+
+### ▶ [Tıkla ve oyna: codeviants-chess.pages.dev](https://codeviants-chess.pages.dev)
+
+Kayıt yok, kurulum yok: linki aç, bota karşı ya da arkadaşınla oyna. Telefonda ve bilgisayarda çalışır.
 
 Bir WhatsApp grubu için satranç ve turnuva uygulaması: kayıt, uygulama içinde saatli oyunlar (canlı ve
 yazışmalı), turnuvalar, galibiyet / mağlubiyet / beraberlik, puan ve maç geçmişi. Oyun kayıtları değişmez,
 hash zinciriyle mühürlenmiş bir olay kaydında tutulur; biten her oyun ayrıca bir arşiv reposuna PGN olarak
 yazılır.
 
-Durum: planlama bitti, kod henüz yok. Gereksinimler ve kararlar [SPEC.md](SPEC.md), ilerleme
-[PROGRESS.md](PROGRESS.md).
+Durum: **P0 — oynanabilir, puansız sürüm**: bota karşı (3 seviye), arkadaşa link atarak ya da rastgele rakiple
+oyna; telefon ve masaüstü; ok çizme. Puan, hesap ve turnuvalar sonraki aşamalarda. Gereksinimler ve kararlar
+[SPEC.md](SPEC.md), ilerleme [PROGRESS.md](PROGRESS.md).
 
 Katılmak için: [CONTRIBUTING.md](CONTRIBUTING.md) — iş seçme, dal, PR ve yapay zekâ ajanlarıyla çalışma kuralları.
+
+## Çalıştırma
+
+Node 22 gerekir.
+
+```bash
+npm ci
+npm run dev        # http://localhost:5173 — Supabase anahtarı yoksa çevrimiçi modlar aynı tarayıcının sekmeleri arasında çalışır
+npm run check      # tip denetimi + birim testleri
+npm run e2e        # tarayıcıda uçtan uca testler (ilk sefer: npx playwright install chromium)
+```
+
+Çevrimiçi oyunu gerçek cihazlar arasında çalıştırmak için `.env.local` dosyasına (git'e girmez):
+
+```
+VITE_SUPABASE_URL=https://<proje>.supabase.co
+VITE_SUPABASE_ANON_KEY=<anon/public anahtar>
+```
+
+## Yayına alma (Cloudflare Pages)
+
+1. Supabase: yeni proje → **Project Settings → API**: Project URL ve `anon` `public` anahtarı al.
+   Veritabanı kullanılmıyor; yalnızca Realtime (broadcast + presence). **Realtime → Settings**'te public
+   kanallara erişim açık olmalı (varsayılan).
+2. Cloudflare: **Workers & Pages → Create → Pages → Connect to Git** → `codeviants-lab/chess`.
+   Build command `npm run build`, output `dist`, ortam değişkenleri `VITE_SUPABASE_URL`,
+   `VITE_SUPABASE_ANON_KEY` (ve gerekirse `NODE_VERSION=22`). Proje adı `codeviants-chess` →
+   `https://codeviants-chess.pages.dev`.
+3. Her PR'a otomatik önizleme linki gelir; `main`'e birleşen her şey yayına çıkar.
+
+Anon anahtar tarayıcıya gömülür ve herkese açıktır; bu Supabase'in tasarımıdır. Servis (service_role) anahtarı
+asla buraya ya da repoya girmez.
 
 ## Kendi sistemini icat et
 
@@ -32,4 +69,5 @@ değişmediği için denemek risksizdir.
 
 ## Lisans
 
-MIT — bkz. [LICENSE](LICENSE).
+MIT — bkz. [LICENSE](LICENSE). Taş görselleri (`app/public/pieces/`): cburnett seti, Colin M.L. Burnett,
+[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) — Lichess'in kullandığı standart set.

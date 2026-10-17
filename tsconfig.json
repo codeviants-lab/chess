@@ -4,5 +4,5 @@
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "types": ["vite/client"]
   },
-  "include": ["core/**/*.ts", "app/**/*.ts", "tests/**/*.ts", "vite.config.ts", "vitest.config.ts"]
+  "include": ["core/**/*.ts", "app/**/*.ts", "tests/**/*.ts", "e2e/**/*.ts", "vite.config.ts", "vitest.config.ts", "playwright.config.ts"]
 }
