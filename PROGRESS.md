@@ -18,6 +18,7 @@
 
 ## Aşamalar
 - [x] Açık kararlar cevaplandı (SPEC.md, 2026-10-17)
+- [ ] P0 — oynanabilir sürüm (puansız): bot, arkadaşa link, rastgele rakip
 - [ ] M0 — kayıt çekirdeği
 - [ ] M1 — tahta ve yerel oyun
 - [ ] M2 — hesaplar

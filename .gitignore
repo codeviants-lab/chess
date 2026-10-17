@@ -5,3 +5,5 @@ dist/
 .DS_Store
 *.log
 coverage/
+e2e/.results/
+playwright-report/
