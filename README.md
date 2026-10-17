@@ -16,6 +16,18 @@ oyna; telefon ve masaüstü; ok çizme. Puan, hesap ve turnuvalar sonraki aşama
 
 Katılmak için: [CONTRIBUTING.md](CONTRIBUTING.md) — iş seçme, dal, PR ve yapay zekâ ajanlarıyla çalışma kuralları.
 
+## Neden "codeviants"?
+
+İsim üç kelimenin üst üste binmesi:
+
+- **co** — birlikte. Bu proje bir grubun ortak işi.
+- **dev** — developer, geliştirici. Birlikte geliştirenler: *co-dev-iants*.
+- **deviant** — sapkın, normdan sapan.
+
+Sonuncusu bilerek seçildi. Varsayılan hal hiçbir şey yapmamak: evde oturmak, akıp giden günü izlemek. Biz o
+normdan sapanlarız. Bir şey üretmek, birlikte bir şey kurmak için oturduğumuz yerden kalkanlar. Hiçbir şey
+yapmamanın "normal"i karşısında sapkın kalmak iyidir.
+
 ## Çalıştırma
 
 Node 22 gerekir.
