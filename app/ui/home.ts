@@ -68,7 +68,7 @@ export function renderHome(root: HTMLElement, navigate: (hash: string) => void):
     h('main', { class: 'home' },
       h('header', { class: 'brand' },
         h('img', { src: `${import.meta.env.BASE_URL}pieces/wN.svg`, alt: '', width: 44, height: 44 }),
-        h('h1', {}, 'Satranç Kulübü'),
+        h('h1', {}, 'codeviants-chess'),
       ),
       online,
       h('label', { class: 'name', for: 'name' }, 'Adın', nameInput),

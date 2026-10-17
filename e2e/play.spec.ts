@@ -48,7 +48,7 @@ async function shot(page: Page, name: string) {
 test('ana sayfa açılıyor', async ({ page }) => {
   const errors = collectErrors(page);
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Satranç Kulübü' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'codeviants-chess' })).toBeVisible();
   await expect(page.getByText(/Şu an sitede \d+ kişi/)).toBeVisible();
   await noHorizontalScroll(page);
   await shot(page, 'ana-sayfa');

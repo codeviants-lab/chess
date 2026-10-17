@@ -1,4 +1,4 @@
-# SPEC — Satranç Kulübü
+# SPEC — codeviants-chess
 
 Bir WhatsApp grubu için satranç ve turnuva uygulaması.
 

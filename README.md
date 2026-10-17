@@ -1,4 +1,8 @@
-# Satranç Kulübü
+# codeviants-chess
+
+### ▶ [Tıkla ve oyna: codeviants-chess.pages.dev](https://codeviants-chess.pages.dev)
+
+Kayıt yok, kurulum yok: linki aç, bota karşı ya da arkadaşınla oyna. Telefonda ve bilgisayarda çalışır.
 
 Bir WhatsApp grubu için satranç ve turnuva uygulaması: kayıt, uygulama içinde saatli oyunlar (canlı ve
 yazışmalı), turnuvalar, galibiyet / mağlubiyet / beraberlik, puan ve maç geçmişi. Oyun kayıtları değişmez,

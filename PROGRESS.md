@@ -1,4 +1,4 @@
-# PROGRESS — Satranç Kulübü
+# PROGRESS — codeviants-chess
 
 Çalışma döngüsünün günlüğü (bkz. SPEC.md). En yeni kayıt "Günlük"ün en altında.
 
