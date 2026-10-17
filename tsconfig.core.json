@@ -1,0 +1,10 @@
+{
+  // core/ is checked on its own, without DOM or Node types, so that it cannot
+  // depend on the browser, Node, Supabase or app/ (see core/README.md).
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    "types": []
+  },
+  "include": ["core/**/*.ts"]
+}
