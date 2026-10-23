@@ -1,6 +1,6 @@
 # codeviants-chess
 
-### ▶ [Tıkla ve oyna: codeviants-lab.github.io](https://codeviants-lab.github.io)
+### ▶ [Tıkla ve oyna: codeviants-lab.github.io/chess](https://codeviants-lab.github.io/chess/)
 
 Kayıt yok, kurulum yok: linki aç ve oyna. Telefonda ve bilgisayarda çalışır. Şu an bota karşı; arkadaşa link ve
 rastgele rakip, Supabase bağlanınca açılır.
@@ -48,16 +48,17 @@ VITE_SUPABASE_ANON_KEY=<anon/public anahtar>
 
 ## Yayına alma
 
-Site GitHub Pages'te: `scripts/deploy-pages.sh` derler ve yalnızca derlenmiş dosyaları public
-`codeviants-lab/codeviants-lab.github.io` reposuna gönderir (kaynak kod bu private repoda kalır). Adres:
-https://codeviants-lab.github.io. Yayınlamak: `main` güncelken `./scripts/deploy-pages.sh`.
+Site GitHub Pages'te, bu repodan: `main`'e birleşen her değişikliği `.github/workflows/pages.yml` derleyip
+https://codeviants-lab.github.io/chess/ adresine yayınlar. Elle bir şey yapmak gerekmez (gerekirse Actions →
+Pages → Run workflow).
 
 Arkadaşa link ve rastgele rakip için Supabase gerekir (Supabase anahtarı olmayan bir derlemede bu modlar "yakında"
 olarak görünür):
 
 1. supabase.com'da proje aç → **Project Settings → API**: Project URL ve `anon` `public` anahtar.
    Veritabanı kullanılmıyor; yalnızca Realtime (broadcast + presence).
-2. Bu iki değeri yukarıdaki gibi `.env.local`'e yaz ve `./scripts/deploy-pages.sh` çalıştır.
+2. Yerelde denemek için bu iki değeri yukarıdaki gibi `.env.local`'e yaz. Yayın için aynı adlarla repo
+   değişkeni olarak ekle (Settings → Secrets and variables → Actions → **Variables**) ve Pages iş akışını çalıştır.
 
 Anon anahtar tarayıcıya gömülür ve herkese açıktır; bu Supabase'in tasarımıdır. Servis (service_role) anahtarı
 asla buraya ya da repoya girmez. İleride PR önizlemeleri istenirse Cloudflare Pages'e geçilebilir (SPEC).

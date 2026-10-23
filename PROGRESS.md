@@ -19,8 +19,8 @@
 ## Aşamalar
 - [x] Açık kararlar cevaplandı (SPEC.md, 2026-10-17)
 - [ ] P0 — oynanabilir sürüm (puansız): bot, arkadaşa link, rastgele rakip — kod bitti (#13, PR #14), yayında
-      https://codeviants-lab.github.io (yalnızca bot); kalanlar: #15 Supabase, #16 cihaz testi, #17 otomatik
-      yayın, #18 gruba açılış
+      https://codeviants-lab.github.io/chess/ (yalnızca bot); kalanlar: #15 Supabase, #16 cihaz testi,
+      #18 gruba açılış (#17 otomatik yayın bitti)
 - [ ] M0 — kayıt çekirdeği (#1 bitti; #2–#11 açık)
 - [ ] M1 — tahta ve yerel oyun
 - [ ] M2 — hesaplar
@@ -48,3 +48,5 @@
   (Cloudflare hesabı yok): derlenmiş dosyalar public codeviants-lab/codeviants-lab.github.io reposunda, yayın
   `./scripts/deploy-pages.sh` ile elle. Supabase anahtarı olmadığı için yayında yalnızca bota karşı oyun var;
   çevrimiçi modlar "Yakında". Açık uçlar "P0 — gruba açılış" kilometre taşında: #15–#18.
+- 2026-10-23 — Repo public yapıldı; site artık bu repodan, `main`'e her birleşmede GitHub Actions ile yayınlanıyor
+  (https://codeviants-lab.github.io/chess/). `scripts/deploy-pages.sh` ve ayrı yayın reposu yerine bu (#17).
